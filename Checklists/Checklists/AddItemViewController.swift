@@ -1,9 +1,22 @@
 import UIKit
 
+protocol AddItemViewControllerDelegate: AnyObject {
+  func addItemViewControllerDidCancel(
+    _ controller: AddItemViewController)
+  func addItemViewController(
+    _ controller: AddItemViewController,
+    didFinishAdding item: ChecklistItem
+  )
+}
+
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
+
     override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.largeTitleDisplayMode = .never
@@ -15,16 +28,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     }
 
   // MARK: - Actions
-  @IBAction func cancel() {
-    navigationController?.popViewController(animated: true)
-  }
+    @IBAction func cancel() {
+      delegate?.addItemViewControllerDidCancel(self)
+    }
 
-  @IBAction func done() {
-  // Add the following line
-    print("Contents of the text field: \(textField.text!)")
+    @IBAction func done() {
+      let item = ChecklistItem()
+      item.text = textField.text!
 
-    navigationController?.popViewController(animated: true)
-  }
+      delegate?.addItemViewController(self, didFinishAdding: item)
+    }
 
     
   // MARK: - Table View Delegates
