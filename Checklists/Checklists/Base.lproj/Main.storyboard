@@ -16,27 +16,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="SSi-uk-zxz">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.333332061767578"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="SSi-uk-zxz">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SSi-uk-zxz" id="JLz-xD-f7M">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="44.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="330.66666666666669" height="43.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9l-ix-Dww">
+                                            <rect key="frame" x="20" y="8" width="13" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="13" id="Qmg-d8-fHB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiv-VJ-IUb">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="321" height="21.666666666666671"/>
+                                            <rect key="frame" x="109" y="11" width="146" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Xiv-VJ-IUb" firstAttribute="top" secondItem="JLz-xD-f7M" secondAttribute="topMargin" id="H9l-RR-npF"/>
-                                        <constraint firstItem="Xiv-VJ-IUb" firstAttribute="leading" secondItem="JLz-xD-f7M" secondAttribute="leadingMargin" id="Vux-TC-04U"/>
-                                        <constraint firstItem="Xiv-VJ-IUb" firstAttribute="trailing" secondItem="JLz-xD-f7M" secondAttribute="trailingMargin" id="mtn-YF-m4m"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Xiv-VJ-IUb" secondAttribute="bottom" constant="0.67000000000000004" id="oZP-H1-Byz"/>
+                                        <constraint firstItem="v9l-ix-Dww" firstAttribute="leading" secondItem="JLz-xD-f7M" secondAttribute="leadingMargin" id="1jA-h8-ezV"/>
+                                        <constraint firstItem="Xiv-VJ-IUb" firstAttribute="top" secondItem="JLz-xD-f7M" secondAttribute="topMargin" id="Gub-av-RTl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Xiv-VJ-IUb" secondAttribute="trailing" constant="67.666666666666686" id="Vja-hP-JGq"/>
+                                        <constraint firstItem="Xiv-VJ-IUb" firstAttribute="leading" secondItem="v9l-ix-Dww" secondAttribute="trailing" constant="76" id="Wds-sN-YS5"/>
+                                        <constraint firstItem="v9l-ix-Dww" firstAttribute="top" secondItem="JLz-xD-f7M" secondAttribute="topMargin" constant="-3" id="WgI-Ae-KNO"/>
+                                        <constraint firstItem="v9l-ix-Dww" firstAttribute="centerY" secondItem="Xiv-VJ-IUb" secondAttribute="centerY" id="kj3-sx-zBK"/>
+                                        <constraint firstItem="v9l-ix-Dww" firstAttribute="centerY" secondItem="JLz-xD-f7M" secondAttribute="centerY" id="q3Y-Gn-2fD"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2ld-xA-d8T" kind="show" identifier="EditItem" trigger="accessoryAction" id="bTt-qH-K2O"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -140,6 +155,9 @@
             <point key="canvasLocation" x="-124" y="-54"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bTt-qH-K2O"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
