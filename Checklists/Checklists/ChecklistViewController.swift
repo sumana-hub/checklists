@@ -9,12 +9,18 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
   var items = [ChecklistItem]()
+  var checklist: Checklist!
+
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      navigationController?.navigationBar.prefersLargeTitles = true
+        
+      // Disable large titles for this view controller
+      navigationItem.largeTitleDisplayMode = .never
+      
       // Load items
       loadChecklistItems()
+      title = checklist.name
     }
     
     func configureCheckmark(
